@@ -1,0 +1,43 @@
+<%- include('partials/header') %>
+
+  <div class="container mt-5">
+    <h1>Give Your Review</h1>
+  
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="card">
+          <div class="card-body">
+  
+            <!-- Makes POST request to /register route -->
+            <table class="cart-table">
+                <thead class="cart-table-head">
+                  <tr class="table-head-row">
+                    <th class="product-image">Product Imge</th>
+                    <th class="product-name">Product Name</th>
+                    <th class="product-rating">Rating</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-body-row" style="text-align: center;">
+                    <td class="product-image"><img src="<%-product.Picture%>" alt=""></td>
+                    <td class="product-name"><%-product.ProductName%></td>
+                    <td class="product-rating"><%-review%></td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+            <form action="/Review" method="POST">
+                <label>Give Rating: </label>
+                <input type="number" name="Rating" placeholder="Rating" max="10" min="0"></input>
+                <button type="submit" class="btn btn-dark">Submit</button>
+                <input type="text" name="address" value="<%-product._id%>" style="visibility: collapse; height: 0px;"><br>
+                <input type="number" name="types" value="<%-i%>" style="visibility: collapse; height: 0px;"><br>
+            </form>
+  
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>
+  <br><br>
+<%- include('partials/footer') %>
